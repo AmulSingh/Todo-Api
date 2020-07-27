@@ -25,12 +25,25 @@ app.get('/todos/:id', function(req,res){
     res.json(matchedTodo);
 });
 
-app.post('/todos',function(req, res){
+app.post('/todos', function(req, res){
     var body = req.body;
     body.id = Idincrement++;
-    console.log('body value :'+body);
     todos.push(body);
-    console.log('todos value :'+todos);
+    res.json(todos);
+});
+
+app.put('/todos/:id', function(req, res){
+    var todoId1 = parseInt(req.params.id);
+    var matchedTodo1 = _.findWhere(todos,{id:todoId1});
+    var body1 = req.body;
+    _.extend(matchedTodo1,body1);
+    res.json(matchedTodo1);
+});
+
+app.delete('/todos/:id', function(req, res){
+    var todoId2 = parseInt(req.params.id);
+    var matchedTodo2 = _.findWhere(todos,{id:todoId2});
+    todos = _.without(todos,matchedTodo2);
     res.json(todos);
 });
 
