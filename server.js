@@ -8,14 +8,28 @@ var Idincrement = 1;
 
 app.use(bodyParser.json());
 
+//GET request for no route
 app.get('/', function(req, res){
     res.send('hello world!');
 });
 
+//GET request for displaying all todos with queryParams
 app.get('/todos', function(req, res){
-    res.json(todos);
+    var queryParams = req.query;
+    var matchedTodo = todos;
+    if(queryParams.hasOwnProperty('plays') && queryParams.plays == "false"){
+        matchedTodo = _.where(matchedTodo,{"plays":false});
+        res.json(matchedTodo);
+    }else if(queryParams.hasOwnProperty('plays') && queryParams.plays == "true"){
+        matchedTodo = _.where(matchedTodo,{"plays":true});
+        res.json(matchedTodo);
+    }else{
+        console.log('no query param passed...')
+        res.json(todos);
+    }
 });
 
+//GET request for displaying Todo with id
 app.get('/todos/:id', function(req,res){
     var todoId = parseInt(req.params.id);
     var matchedTodo = _.findWhere(todos,{id:todoId});
@@ -25,6 +39,7 @@ app.get('/todos/:id', function(req,res){
     res.json(matchedTodo);
 });
 
+// POST request to add todo
 app.post('/todos', function(req, res){
     var body = req.body;
     body.id = Idincrement++;
@@ -32,6 +47,7 @@ app.post('/todos', function(req, res){
     res.json(todos);
 });
 
+//PUT request to update the todo by id
 app.put('/todos/:id', function(req, res){
     var todoId1 = parseInt(req.params.id);
     var matchedTodo1 = _.findWhere(todos,{id:todoId1});
@@ -40,6 +56,7 @@ app.put('/todos/:id', function(req, res){
     res.json(matchedTodo1);
 });
 
+//DELETE request to delete todo
 app.delete('/todos/:id', function(req, res){
     var todoId2 = parseInt(req.params.id);
     var matchedTodo2 = _.findWhere(todos,{id:todoId2});
