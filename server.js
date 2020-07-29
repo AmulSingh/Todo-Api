@@ -55,7 +55,7 @@ app.put('/todos/:id', function(req, res){
     var matchedTodo1 = _.findWhere(todos,{id:todoId1});
     var body1 = req.body;
     _.extend(matchedTodo1,body1);
-    res.json(matchedTodo1);
+    res.json(todos);
 });
 
 //DELETE request to delete todo

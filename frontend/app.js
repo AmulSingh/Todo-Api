@@ -17,10 +17,6 @@
             controller:'updatetodoController',
             templateUrl:'/template/update.html'
         })
-        .when('/delete',{
-            controller:'deletetodoController',
-            templateUrl:'/template/delete.html'
-        })
         .otherwise({redirectTo:'/'})
     });
 }());

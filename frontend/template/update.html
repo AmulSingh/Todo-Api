@@ -1,0 +1,20 @@
+<div>
+    Id : <input type="text" name="todo_id" id="todo_id" ng-model="todo_id" autofocus placeholder="Enter Id">
+    Name : <input type="text" name="name" id="name" ng-model="name" autofocus placeholder="Enter name">
+    Plays : <input type="checkbox" name="plays" id="plays" ng-model="plays"/>
+    <button ng-click="update()">Update</button><br>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Plays</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr ng-repeat="res in results">
+            <td>{{ res.id }}</td>
+            <td>{{ res.name }}</td>
+            <td>{{ res.plays }}</td>
+            <td style="color: crimson; cursor: pointer; font-size: 10px; font-weight: bolder">&nbsp;&nbsp;&#9587;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+</div>
