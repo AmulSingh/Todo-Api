@@ -2,7 +2,7 @@
     var posttodoController = function($scope, $http){
         var req = {
             method:'GET',
-            url:'http://localhost:3000/todos'
+            url:'https://amul-todo-api.herokuapp.com/todos'
         }
         $http(req).then(function(todos){
             $scope.results = todos.data;
@@ -17,7 +17,7 @@
             }
             var req = {
                 method:'POST',
-                url:'http://localhost:3000/todos',
+                url:'https://amul-todo-api.herokuapp.com/todos',
                 data:{
                     "name":$scope.name,
                     "plays":$scope.plays

@@ -2,7 +2,7 @@
     var gettodoController = function($scope, $http){
         var req = {
             method:'GET',
-            url:'http://localhost:3000/todos'
+            url:'https://amul-todo-api.herokuapp.com/todos'
         }
         $http(req).then(function(todos){
             $scope.results = todos.data;
@@ -12,7 +12,7 @@
         $scope.getBySearch = function(){
             var req1 = {
                 method:'GET',
-                url:'http://localhost:3000/todos',
+                url:'https://amul-todo-api.herokuapp.com/todos',
                 params:{
                     'plays':$scope.search
                 }

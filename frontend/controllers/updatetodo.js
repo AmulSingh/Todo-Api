@@ -2,7 +2,7 @@
     var updatetodoController = function($scope, $routeParams, $http){
         var req = {
             method:'GET',
-            url:'http://localhost:3000/todos'
+            url:'https://amul-todo-api.herokuapp.com/todos'
         }
         $http(req).then(function(todos){
             $scope.results = todos.data;
@@ -24,7 +24,7 @@
             }
             var req1 = {
                 method:'PUT',
-                url:'http://localhost:3000/todos/' + $scope.todo_id,
+                url:'https://amul-todo-api.herokuapp.com/todos/' + $scope.todo_id,
                 data:data
             }
             $http(req1).then(function(todos){
