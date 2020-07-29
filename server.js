@@ -8,19 +8,21 @@ var Idincrement = 1;
 
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/frontend'));
+
 //GET request for no route
-app.get('/', function(req, res){
+/*app.get('/', function(req, res){
     res.send('hello world!');
-});
+});*/
 
 //GET request for displaying all todos with queryParams
 app.get('/todos', function(req, res){
     var queryParams = req.query;
     var matchedTodo = todos;
-    if(queryParams.hasOwnProperty('plays') && queryParams.plays == "false"){
+    if(queryParams.hasOwnProperty('plays') && queryParams.plays.length > 0 && queryParams.plays == "false"){
         matchedTodo = _.where(matchedTodo,{"plays":false});
         res.json(matchedTodo);
-    }else if(queryParams.hasOwnProperty('plays') && queryParams.plays == "true"){
+    }else if(queryParams.hasOwnProperty('plays') && queryParams.plays.length > 0 && queryParams.plays == "true"){
         matchedTodo = _.where(matchedTodo,{"plays":true});
         res.json(matchedTodo);
     }else{

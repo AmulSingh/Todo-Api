@@ -1,0 +1,17 @@
+<div>
+    Name : <input type="text" name="name" id="name" ng-model="name" autofocus placeholder="Enter name">
+    Plays : <input type="checkbox" name="plays" id="plays" ng-model="plays"/>
+    <button ng-click="post()">Submit</button><br>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Plays</td>
+        </tr>
+        <tr ng-repeat="res in results">
+            <td>{{ res.id }}</td>
+            <td>{{ res.name }}</td>
+            <td>{{ res.plays }}</td>
+        </tr>
+    </table>
+</div>

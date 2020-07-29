@@ -1,0 +1,16 @@
+<div>
+    Search : <input type="text" name="search" id="search" ng-model="search" autofocus placeholder="Type True/False">
+    <button ng-click="getBySearch()">Submit</button><br>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Plays</td>
+        </tr>
+        <tr ng-repeat="res in results">
+            <td>{{ res.id }}</td>
+            <td>{{ res.name }}</td>
+            <td>{{ res.plays }}</td>
+        </tr>
+    </table>
+</div>
