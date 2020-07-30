@@ -1,5 +1,5 @@
 <div>
-    Id : <input type="text" name="todo_id" id="todo_id" ng-model="todo_id" autofocus placeholder="Enter Id">
+    Id : <input type="number" name="todo_id" id="todo_id" ng-model="todo_id" autofocus placeholder="Enter Id">
     Name : <input type="text" name="name" id="name" ng-model="name" autofocus placeholder="Enter name">
     Plays : <input type="checkbox" name="plays" id="plays" ng-model="plays"/>
     <button ng-click="update()">Update</button><br>
@@ -14,7 +14,7 @@
             <td>{{ res.id }}</td>
             <td>{{ res.name }}</td>
             <td>{{ res.plays }}</td>
-            <td style="color: crimson; cursor: pointer; font-size: 10px; font-weight: bolder">&nbsp;&nbsp;&#9587;&nbsp;&nbsp;</td>
+            <td style="color: crimson; cursor: pointer; font-size: 10px; font-weight: bolder" ng-click=delete()>&nbsp;&nbsp;&#9587;&nbsp;&nbsp;</td>
         </tr>
     </table>
 </div>
