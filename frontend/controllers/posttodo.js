@@ -43,7 +43,7 @@
             }
         }
         $scope.delete = function(res){
-            $scope.results = deleteService.deleteTodo(res);
+            deleteService.deleteTodo(res);
             var req2 = {
                 method:'GET',
                 url:'https://amul-todo-api.herokuapp.com/todos'
