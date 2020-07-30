@@ -38,10 +38,18 @@ app.get('/todos/:id', function(req,res){
 
 // POST request to add todo
 app.post('/todos', function(req, res){
-    var body = req.body;
-    body.id = Idincrement++;
-    todos.push(body);
-    res.json(todos);
+    if(!_.isEmpty(todos)){
+        var body = req.body;
+        body.id = Idincrement++;
+        todos.push(body);
+        res.json(todos);
+    }else{
+        Idincrement = 1;
+        var body = req.body;
+        body.id = Idincrement++;
+        todos.push(body);
+        res.json(todos);
+    }
 });
 
 //PUT request to update the todo by id
