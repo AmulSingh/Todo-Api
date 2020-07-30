@@ -2,8 +2,8 @@
     var posttodoController = function($scope, $http, deleteService){
         var req = {
             method:'GET',
-            //url:'https://amul-todo-api.herokuapp.com/todos'
-            url:'http://localhost:3000/todos'
+            url:'https://amul-todo-api.herokuapp.com/todos'
+            //url:'http://localhost:3000/todos'
         }
         $http(req).then(function(todos){
             $scope.results = todos.data;
@@ -20,8 +20,8 @@
                     }
                     var req = {
                         method:'POST',
-                        //url:'https://amul-todo-api.herokuapp.com/todos',
-                        url:'http://localhost:3000/todos',
+                        url:'https://amul-todo-api.herokuapp.com/todos',
+                        //url:'http://localhost:3000/todos',
                         data:{
                             "name":$scope.name,
                             "plays":$scope.plays
@@ -42,8 +42,18 @@
                 alert('Name cannot be empty!');
             }
         }
-        $scope.delete = function(){
-            deleteService.deleteTodo();
+        $scope.delete = function(res){
+            $scope.results = deleteService.deleteTodo(res);
+            var req2 = {
+                method:'GET',
+                url:'https://amul-todo-api.herokuapp.com/todos'
+                //url:'http://localhost:3000/todos'
+            }
+            $http(req2).then(function(todos){
+                $scope.results = todos.data;
+            },function(){
+                console.log('something is wrong in DELETE request in post page...');
+            });
         }
     }
     

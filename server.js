@@ -10,11 +10,6 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/frontend'));
 
-//GET request for no route
-/*app.get('/', function(req, res){
-    res.send('hello world!');
-});*/
-
 //GET request for displaying all todos with queryParams
 app.get('/todos', function(req, res){
     var queryParams = req.query;
