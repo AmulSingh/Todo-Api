@@ -33,6 +33,9 @@
                 }
                 $http(req1).then(function(todos){
                     $scope.results = todos.data;
+                    $scope.todo_id = null;
+                    $scope.name = "";
+                    $scope.plays = false;
                 }, function(){
                     console.log('error in update request...')
                 });
