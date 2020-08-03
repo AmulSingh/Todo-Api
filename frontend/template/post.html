@@ -1,18 +1,16 @@
 <div>
-    Name : <input type="text" name="name" id="name" ng-model="name" autofocus placeholder="Enter name">
-    Plays : <input type="checkbox" name="plays" id="plays" ng-model="plays"/>
+    Task : <input type="text" name="name" id="name" ng-model="name" autofocus placeholder="Enter Task">
+    Task Status : <input type="checkbox" name="plays" id="plays" ng-model="plays"/>
     <button ng-click="post()">Create</button><br>
     <table>
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Plays</td>
+            <td>Tasks</td>
+            <td>Task Status</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr ng-repeat="res in results">
-            <td>{{ res.id }}</td>
-            <td>{{ res.name }}</td>
-            <td>{{ res.plays }}</td>
+            <td>{{ res.task }}</td>
+            <td>{{ res.taskstatus }}</td>
             <td style="color: crimson; cursor: pointer; font-size: 10px; font-weight: bolder" ng-click="delete(res)">&nbsp;&nbsp;&#9587;&nbsp;&nbsp;</td>
         </tr>
     </table>

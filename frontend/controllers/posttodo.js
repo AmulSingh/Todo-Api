@@ -1,14 +1,14 @@
 (function(){
     var posttodoController = function($scope, $http, deleteService){
-        var req = {
+        var req2 = {
             method:'GET',
-            url:'https://amul-todo-api.herokuapp.com/todos'
-            //url:'http://localhost:3000/todos'
+            //url:'https://amul-todo-api.herokuapp.com/todos'
+            url:'http://localhost:3000/todos'
         }
-        $http(req).then(function(todos){
+        $http(req2).then(function(todos){
             $scope.results = todos.data;
         },function(){
-            console.log('something is wrong in GET request in post page...');
+            console.log('something is wrong in DELETE request in get page...');
         });
         $scope.post = function(){
             try{
@@ -20,17 +20,27 @@
                     }
                     var req = {
                         method:'POST',
-                        url:'https://amul-todo-api.herokuapp.com/todos',
-                        //url:'http://localhost:3000/todos',
+                        //url:'https://amul-todo-api.herokuapp.com/todos',
+                        url:'http://localhost:3000/todos',
                         data:{
-                            "name":$scope.name,
-                            "plays":$scope.plays
+                            "task":$scope.name,
+                            "taskstatus":$scope.plays
                         }
                     }
-                    return $http(req).then(function(todos){
-                        $scope.results = todos.data;
+                    return $http(req).then(function(){
                         $scope.name = "";
                         $scope.plays = false;
+                        console.log('post request completed...');
+                        var req2 = {
+                            method:'GET',
+                            //url:'https://amul-todo-api.herokuapp.com/todos'
+                            url:'http://localhost:3000/todos'
+                        }
+                        $http(req2).then(function(todos){
+                            $scope.results = todos.data;
+                        },function(){
+                            console.log('something is wrong in DELETE request in get page...');
+                        });
                     },function(){
                         console.log('something is wrong in POST request...');
                     });
@@ -46,13 +56,13 @@
             deleteService.deleteTodo(res);
             var req2 = {
                 method:'GET',
-                url:'https://amul-todo-api.herokuapp.com/todos'
-                //url:'http://localhost:3000/todos'
+                //url:'https://amul-todo-api.herokuapp.com/todos'
+                url:'http://localhost:3000/todos'
             }
             $http(req2).then(function(todos){
                 $scope.results = todos.data;
             },function(){
-                console.log('something is wrong in DELETE request in post page...');
+                console.log('something is wrong in DELETE request in get page...');
             });
         }
     }

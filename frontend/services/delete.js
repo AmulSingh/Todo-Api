@@ -4,11 +4,11 @@
             try{
                 var request = {
                     method:'DELETE',
-                    url:'https://amul-todo-api.herokuapp.com/todos/' + res.id,
-                    //url:'http://localhost:3000/todos/' + res.id
+                    //url:'https://amul-todo-api.herokuapp.com/todos/' + res._id,
+                    url:'http://localhost:3000/todos/' + res._id
                 }
-                $http(request).then(function(todos){
-                    return todos.data;
+                $http(request).then(function(){
+                    return console.log('delete request completed...')
                 }, function(){
                     return console.log('error in delete request...')
                 });

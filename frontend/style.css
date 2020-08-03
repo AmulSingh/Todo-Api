@@ -46,3 +46,6 @@ button{
 .red-pink{
     background-color: #ff0066;
 }
+td{
+    padding: 0 15px;
+}
