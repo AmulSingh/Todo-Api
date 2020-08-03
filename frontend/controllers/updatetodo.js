@@ -10,6 +10,9 @@
         },function(){
             console.log('something is wrong in DELETE request in get page...');
         });
+        $scope.temp = function(){
+            alert('working on it, be patient...');
+        }
         $scope.update = function(){
             try{
                 if($scope.plays === true && $scope.name.length > 0 && $scope.todo_id != 0){
