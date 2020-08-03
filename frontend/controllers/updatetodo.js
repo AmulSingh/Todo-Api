@@ -2,8 +2,8 @@
     var updatetodoController = function($scope, $routeParams, $http, deleteService){
         var req2 = {
             method:'GET',
-            //url:'https://amul-todo-api.herokuapp.com/todos'
-            url:'http://localhost:3000/todos'
+            url:'https://amul-todo-api.herokuapp.com/todos'
+            //url:'http://localhost:3000/todos'
         }
         $http(req2).then(function(todos){
             $scope.results = todos.data;
@@ -30,8 +30,8 @@
                 }
                 var req1 = {
                     method:'PUT',
-                    //url:'https://amul-todo-api.herokuapp.com/todos/' + $scope.todo_id,
-                    url:'http://localhost:3000/todos/' + $scope.todo_id,
+                    url:'https://amul-todo-api.herokuapp.com/todos/' + $scope.todo_id,
+                    //url:'http://localhost:3000/todos/' + $scope.todo_id,
                     data:data2
                 }
                 $http(req1).then(function(todos){
@@ -40,8 +40,8 @@
                     $scope.plays = false;
                     var req2 = {
                         method:'GET',
-                        //url:'https://amul-todo-api.herokuapp.com/todos'
-                        url:'http://localhost:3000/todos'
+                        url:'https://amul-todo-api.herokuapp.com/todos'
+                        //url:'http://localhost:3000/todos'
                     }
                     $http(req2).then(function(todos){
                         $scope.results = todos.data;
@@ -59,8 +59,8 @@
             deleteService.deleteTodo(res);
             var req2 = {
                 method:'GET',
-                //url:'https://amul-todo-api.herokuapp.com/todos'
-                url:'http://localhost:3000/todos'
+                url:'https://amul-todo-api.herokuapp.com/todos'
+                //url:'http://localhost:3000/todos'
             }
             $http(req2).then(function(todos){
                 $scope.results = todos.data;
